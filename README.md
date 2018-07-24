@@ -11,7 +11,7 @@ The Box package manager is easily extensible.In fact, the main "box" script does
 cat > /usr/local/bin/box-convert << EOF
 #!/bin/sh
 
-cp $1 $(basename $1 .box).tar.gz
+cp \$1 $(basename \$1 .box).tar.gz
 chmod +x /usr/local/bin/box-convert
 EOF
 ```
