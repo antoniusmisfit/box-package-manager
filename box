@@ -1,0 +1,9 @@
+#!/bin/busybox sh
+
+if [ -e /usr/local/bin/box-$1 ];then
+	cmd=$1
+	shift
+	/usr/local/bin/box-$cmd $*
+else
+	echo "Box command not found."
+fi

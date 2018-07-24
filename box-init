@@ -1,0 +1,28 @@
+#!/bin/busybox sh
+
+pkg=$1
+pkgroot=$(pwd)/$pkg
+
+mkdir -p $pkgroot
+read -p "Package Name: " pkgname
+read -p "Version: " pkgversion
+read -p "Maintainer: " pkgmaintainer
+read -p "Short Description: " pkgdesc
+read -p "Dependencies: " pkgdeps
+
+cat > pkgroot/MANIFEST << EOF
+PackageName: $pkgname
+Version: $pkgversion
+Maintainer: $pkgmaintainer
+Desc: $pkgdesc
+Deps: $pkgdeps
+
+Edit this line.
+EOF
+
+touch $pkgroot/pkginst $pkgroot/pkgrm
+chmod +x $pkgroot/pkg*
+
+cat << EOF
+Basic file structure for package $pkgname has been created. You may now add the software to be packaged within $pkgroot.
+EOF

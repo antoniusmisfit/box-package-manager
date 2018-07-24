@@ -1,0 +1,13 @@
+#!/bin/busybox sh
+
+cat << EOF
+Basic Usage:
+
+box install path/to/package.box
+box remove PackageName
+
+Building a Package:
+
+box init PackageName #initialize package structure
+cd PackageName #Navigate to package structure
+box build package.box #Build a .box package
