@@ -1,5 +1,5 @@
 # box-package-manager
-A simple package manager for Shoebox Linux.
+A simple package manager for [Shoebox Linux](https://github.com/antoniusmisfit/shoebox-linux).
 ## Basic usage
 ```
 box install path/to/package.box
