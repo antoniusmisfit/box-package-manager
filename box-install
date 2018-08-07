@@ -1,1 +1,20 @@
 #!/bin/busybox sh
+
+BOX=/etc/Box
+
+pkg_install()
+{
+PKG=`basename $1 .box`
+BOXDIR=$BOX/$PKG
+printf "\n\e[1mUnpacking $1 to $BOXDIR...\e[0m\n"
+mkdir -p $BOXDIR
+tar -xvzf $1 -C $BOXDIR
+cd $BOXDIR
+printf "\e[1mInstalling/Updating $PKG...\e[0m\n"
+./pkginst
+printf "\e[1mInstallation of $PKG Complete!\e[0m\n"
+}
+
+for eachpkg in $*;do
+pkg_install $eachpkg
+done

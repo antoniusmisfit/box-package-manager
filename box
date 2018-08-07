@@ -5,5 +5,5 @@ if [ -e /usr/local/bin/box-$1 ];then
 	shift
 	/usr/local/bin/box-$cmd $*
 else
-	echo "Box command not found."
+	printf "\e[1mBox command not found.\e[0m\n"
 fi

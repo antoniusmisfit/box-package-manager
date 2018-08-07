@@ -1,1 +1,21 @@
 #!/bin/busybox sh
+
+BOX=/etc/Box
+
+pkg_remove()
+{
+PKG=`basename $1 .box`
+BOXDIR=$BOX/$PKG
+if [[ -e $BOXDIR ]];then
+cd $BOXDIR
+./pkgrm
+rm -rf $BOXDIR
+printf "\n\e[1mPackage $PKG removed.\e[0m\n"
+else
+printf "\m\e[1mPackage $PKG not found within $BOX!\e[0m\n"
+fi
+}
+
+for eachpkg in $*;do
+pkg_remove $eachpkg
+done
